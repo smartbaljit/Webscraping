@@ -4,11 +4,15 @@ import time
 import os
 import pandas as pd
 import time
+import requests
 
-
+executable_path = {'executable_path': 'chromedriver.exe'}
+browser = Browser('chrome', **executable_path, headless=False)
+    
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
+    return browser
 
 def scrape():
     browser = init_browser()
@@ -100,3 +104,4 @@ def marsHem():
         dictionary = {"title": title, "img_url": image_url}
         mars_hemisphere.append(dictionary)
     return mars_hemisphere
+
